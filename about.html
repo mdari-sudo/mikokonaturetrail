@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Story | Mikoko Nature Trail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3c34;
+            --secondary: #2d5a4e;
+            --accent: #c9a227;
+            --sand: #d4c4a8;
+            --cream: #f5f1e8;
+            --mangrove: #4a6741;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--cream);
+            color: var(--primary);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--primary);
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .book-btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .page-hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 6rem 4rem;
+            text-align: center;
+            color: white;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-images {
+            position: relative;
+            height: 500px;
+        }
+
+        .about-img-1 {
+            position: absolute;
+            width: 70%;
+            height: 60%;
+            top: 0;
+            left: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=600&q=80') center/cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-img-2 {
+            position: absolute;
+            width: 60%;
+            height: 50%;
+            bottom: 0;
+            right: 0;
+            border-radius: 20px;
+            overflow: hidden;
+            background: url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80') center/cover;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border: 5px solid var(--cream);
+        }
+
+        .experience-badge {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            transform: translateY(-50%);
+            background: var(--accent);
+            color: var(--primary);
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+            z-index: 3;
+        }
+
+        .experience-badge span {
+            font-size: 2rem;
+            line-height: 1;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content h2 span {
+            color: var(--mangrove);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .mission-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .mission-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-left: 4px solid var(--accent);
+        }
+
+        .mission-card h4 {
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .mission-card p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">🌿</div>
+            <div class="logo-text">Mikoko Nature Trail</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">Our Story</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="culture.html">Culture</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+        <a href="contact.html" class="book-btn">Book Experience</a>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Our Story of Preservation</h1>
+        <p>Discover how we're protecting mangrove ecosystems while empowering local communities</p>
+    </section>
+
+    <section class="content">
+        <div class="about-grid">
+            <div class="about-images">
+                <div class="about-img-1"></div>
+                <div class="about-img-2"></div>
+                <div class="experience-badge">
+                    <span>15+</span>
+                    <small>Years of<br>Conservation</small>
+                </div>
+            </div>
+            <div class="about-content">
+                <h2>Our Story <span>of Preservation</span></h2>
+                <p class="about-text">
+                    Mikoko Nature Trail is a sustainable tourism program launched through the 
+                    Mombasa Tourism Innovation Lab, designed to enhance tourism products while 
+                    providing responsible exploration of Tudor Creek's Mangrove Ecosystem. We 
+                    create emphasis on biodiversity conservation and preservation of Kenya's 
+                    coastal cultural heritage.
+                </p>
+                <p class="about-text">
+                    Our experiences offer a unique blend of environmental conservation, cultural 
+                    exploration, and sustainable tourism. As ecological awareness grows, we meet 
+                    the rising demand for responsible travel that contributes positively to local 
+                    ecosystems and communities.
+                </p>
+                <div class="mission-cards">
+                    <div class="mission-card">
+                        <h4>🌿 Conservation</h4>
+                        <p>Protecting and restoring mangrove ecosystems through community-led initiatives</p>
+                    </div>
+                    <div class="mission-card">
+                        <h4>🤝 Community</h4>
+                        <p>Empowering local communities through sustainable livelihood opportunities</p>
+                    </div>
+                    <div class="mission-card">
+                        <h4>📚 Education</h4>
+                        <p>Creating awareness about mangrove importance and climate resilience</p>
+                    </div>
+                    <div class="mission-card">
+                        <h4>🎭 Culture</h4>
+                        <p>Preserving and showcasing coastal cultural heritage traditions</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 Mikoko Nature Trail | Tudor Creek, Mombasa, Kenya</p>
+    </footer>
+
+</body>
+</html>

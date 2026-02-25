@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Booking | Mikoko Nature Trail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3c34;
+            --secondary: #2d5a4e;
+            --accent: #c9a227;
+            --cream: #f5f1e8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: white;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--primary);
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .book-btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .page-hero {
+            padding: 4rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info > p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-text p {
+            opacity: 0.8;
+            font-size: 0.95rem;
+        }
+
+        .pickup-locations {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .pickup-locations h4 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+
+        .locations {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .location-tag {
+            background: rgba(255,255,255,0.1);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+
+        /* Form */
+        .contact-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            color: var(--primary);
+        }
+
+        .contact-form h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--accent);
+            color: var(--primary);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">🌿</div>
+            <div class="logo-text">Mikoko Nature Trail</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="culture.html">Culture</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+        <a href="contact.html" class="book-btn">Book Experience</a>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Begin Your Adventure</h1>
+        <p>Ready to explore Tudor Creek's mangrove sanctuary? Book your experience today!</p>
+    </section>
+
+    <section class="content">
+        <div class="contact-info">
+            <h2>Get In Touch</h2>
+            <p>
+                Ready to explore Tudor Creek's mangrove sanctuary? Book your experience 
+                today and contribute to conservation while creating unforgettable memories.
+            </p>
+            
+            <div class="contact-details">
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div class="contact-text">
+                        <h4>Location</h4>
+                        <p>Mikindani, Tudor Creek, Mombasa, Kenya</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <div class="contact-text">
+                        <h4>Phone</h4>
+                        <p>+254 718 877 273<br>+254 758 672 740</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <div class="contact-text">
+                        <h4>Email</h4>
+                        <p>info@mikokonaturetrail.co.ke</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pickup-locations">
+                <h4>Free Pickup & Drop-off Available From:</h4>
+                <div class="locations">
+                    <span class="location-tag">Fort Jesus</span>
+                    <span class="location-tag">SGR Terminus</span>
+                    <span class="location-tag">Moi Airport</span>
+                    <span class="location-tag">Diani</span>
+                    <span class="location-tag">Watamu</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-form">
+            <h3>Book Your Experience</h3>
+            <form id="bookingForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input type="text" placeholder="John" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name</label>
+                        <input type="text" placeholder="Doe" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Date</label>
+                        <input type="date" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Group Size</label>
+                        <select required>
+                            <option value="">Select</option>
+                            <option>1 Person</option>
+                            <option>2 People</option>
+                            <option>3-5 People</option>
+                            <option>6-10 People</option>
+                            <option>10+ People</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Experience Interest</label>
+                    <select required>
+                        <option value="">Select Experience</option>
+                        <option>Full Day Safari Package</option>
+                        <option>Mangrove Guided Tour</option>
+                        <option>Boat Ride & Bird Watching</option>
+                        <option>Cultural Heritage Experience</option>
+                        <option>Mangrove Planting</option>
+                        <option>Mud Bath Experience</option>
+                        <option>Custom Package</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Special Requests</label>
+                    <textarea rows="3" placeholder="Dietary requirements, accessibility needs, etc."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Request Booking</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 Mikoko Nature Trail | Tudor Creek, Mombasa, Kenya</p>
+    </footer>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your booking request! We will contact you shortly to confirm your Mikoko Nature Trail experience.');
+            this.reset();
+        });
+    </script>
+
+</body>
+</html>

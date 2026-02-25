@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activities | Mikoko Nature Trail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3c34;
+            --secondary: #2d5a4e;
+            --accent: #c9a227;
+            --ocean: #1e4d5a;
+            --cream: #f5f1e8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, var(--primary), var(--ocean));
+            color: white;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--primary);
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .book-btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .page-hero {
+            padding: 6rem 4rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Activities Grid */
+        .activities-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem 4rem;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .activity-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .activity-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .activity-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .activity-card p {
+            font-size: 0.95rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">🌿</div>
+            <div class="logo-text">Mikoko Nature Trail</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="activities.html" class="active">Activities</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="culture.html">Culture</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+        <a href="contact.html" class="book-btn">Book Experience</a>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Our Experiences</h1>
+        <p>Authentic activities that connect you with nature and culture</p>
+    </section>
+
+    <section class="activities-container">
+        <div class="activities-grid">
+            <div class="activity-card">
+                <div class="activity-icon">🚶</div>
+                <h3>Mangrove Guided Tour</h3>
+                <p>Walk through the forest, observe the captivating ecosystem with interlacing roots and diverse flora and fauna. Learn about the vital role mangroves play in coastal protection.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🚣</div>
+                <h3>Boat Rides</h3>
+                <p>Embark on a tranquil boat ride through serene mangrove atmosphere. Quiet waters and lush greenery create a peaceful setting for nature connection.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🌱</div>
+                <h3>Mangrove Planting</h3>
+                <p>Hands-on conservation effort where you contribute to ecosystem restoration. Feel the earth beneath your fingers as you plant mangrove seedlings.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🎭</div>
+                <h3>Cultural Heritage</h3>
+                <p>Experience coastal culture through traditional dances, basket weaving, and authentic Swahili cuisine while learning about the region's history.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🦅</div>
+                <h3>Bird Watching</h3>
+                <p>Observe diverse avian life thriving in the mangrove ecosystem. Spot herons, kingfishers, and migratory species in their natural habitat.</p>
+            </div>
+            <div class="activity-card">
+                <div class="activity-icon">🧖</div>
+                <h3>Mud Bath</h3>
+                <p>Rejuvenating experience amidst nature. Feel the cool, soothing natural mud envelop your body with therapeutic, skin-nourishing benefits.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 Mikoko Nature Trail | Tudor Creek, Mombasa, Kenya</p>
+    </footer>
+
+</body>
+</html>

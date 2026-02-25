@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cultural Heritage | Mikoko Nature Trail</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a3c34;
+            --secondary: #2d5a4e;
+            --accent: #c9a227;
+            --mud: #5c4a3d;
+            --cream: #f5f1e8;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #8b4513 0%, var(--mud) 100%);
+            color: white;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: var(--primary);
+            padding: 1rem 3rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .book-btn {
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Hero */
+        .page-hero {
+            padding: 6rem 4rem;
+            text-align: center;
+        }
+
+        .page-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Content */
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 4rem 4rem;
+        }
+
+        .culture-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .culture-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .culture-text p {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            opacity: 0.95;
+            margin-bottom: 1.5rem;
+        }
+
+        .culture-items {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .culture-item {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .culture-item h4 {
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .culture-visual {
+            position: relative;
+            height: 500px;
+        }
+
+        .culture-img {
+            width: 80%;
+            height: 80%;
+            border-radius: 20px;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            background: url('https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?w=600&q=80') center/cover;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+        }
+
+        .culture-pattern {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60%;
+            height: 50%;
+            background: var(--accent);
+            border-radius: 20px;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+            .culture-items {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">
+            <div class="logo-icon">🌿</div>
+            <div class="logo-text">Mikoko Nature Trail</div>
+        </a>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">Our Story</a></li>
+            <li><a href="activities.html">Activities</a></li>
+            <li><a href="experiences.html">Experiences</a></li>
+            <li><a href="culture.html" class="active">Culture</a></li>
+            <li><a href="impact.html">Impact</a></li>
+        </ul>
+        <a href="contact.html" class="book-btn">Book Experience</a>
+    </nav>
+
+    <section class="page-hero">
+        <h1>Coastal Cultural Heritage</h1>
+        <p>Experience the rich traditions of Kenya's historic coastline</p>
+    </section>
+
+    <section class="content">
+        <div class="culture-grid">
+            <div class="culture-text">
+                <h2>Immerse in Local Traditions</h2>
+                <p>
+                    Experience the diverse coastal culture of Kenya as you interact with local 
+                    communities. Participate in traditional dances, learn basket weaving techniques, 
+                    and savor authentic Swahili cuisine while listening to stories of early coastal 
+                    settlement and maritime history.
+                </p>
+                <p>
+                    Our cultural experiences are led by community members who share their heritage 
+                    with pride, creating meaningful exchanges that preserve traditions while 
+                    providing sustainable income for local families.
+                </p>
+                <div class="culture-items">
+                    <div class="culture-item">
+                        <h4>Traditional Dance</h4>
+                        <p>Chakacha and other coastal performances</p>
+                    </div>
+                    <div class="culture-item">
+                        <h4>Artisan Crafts</h4>
+                        <p>Basket weaving and traditional jewelry</p>
+                    </div>
+                    <div class="culture-item">
+                        <h4>Swahili Cuisine</h4>
+                        <p>Authentic coastal dishes and spices</p>
+                    </div>
+                    <div class="culture-item">
+                        <h4>Storytelling</h4>
+                        <p>Oral histories and maritime legends</p>
+                    </div>
+                </div>
+            </div>
+            <div class="culture-visual">
+                <div class="culture-img"></div>
+                <div class="culture-pattern"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>© 2024 Mikoko Nature Trail | Tudor Creek, Mombasa, Kenya</p>
+    </footer>
+
+</body>
+</html>
